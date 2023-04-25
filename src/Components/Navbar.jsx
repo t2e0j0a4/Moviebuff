@@ -28,8 +28,8 @@ const Navbar = () => {
         <li className="hover:scale-[0.96] transition-[transform] duration-500"><Link className={`font-NotoSans text-[18px] transition-colors duration-500 ${pathname === '/genres' ? 'text-slate-50' : 'text-slate-500'}`} to={'/genres'}>Genres</Link></li>
       </ul>
 
-      <div className='hidden md:flex justify-center items-center gap-[0.6rem] bg-white px-2 rounded-[4px]'>
-        <input id="searchBar" type='text' className='outline-none py-2  font-NotoSans text-[16px] rounded-[4px] border-slate-800' placeholder='Search' value={searchInput} onChange={(e) => {handleSearchInput(e)}} />
+      <div className='hidden md:flex justify-center items-center gap-[0.6rem] bg-white px-3 py-1 rounded-[50px]'>
+        <input id="searchBar" type='text' className='outline-none py-1 font-NotoSans text-[16px] rounded-[4px] border-slate-800' placeholder='Search' value={searchInput} onChange={(e) => {handleSearchInput(e)}} />
         <BsSearch fontSize={20} className='text-slate-800 cursor-pointer' onClick={() => {handleSearchClick()}}/>
       </div>
 
@@ -47,8 +47,8 @@ const Navbar = () => {
           <li className="hover:scale-[0.96] transition-[transform] duration-500"><Link onClick={() => {setSmMenu(false)}} className={`font-NotoSans text-[18px] transition-colors duration-500 ${pathname === '/' ? 'text-slate-50' : 'text-slate-500'}`} to={'/'}>Trending</Link></li>
           <li className="hover:scale-[0.96] transition-[transform] duration-500"><Link onClick={() => {setSmMenu(false)}} className={`font-NotoSans text-[18px] transition-colors duration-500 ${pathname === '/genres' ? 'text-slate-50' : 'text-slate-500'}`} to={'/genres'}>Genres</Link></li>
         </ul>
-        <div className='flex justify-center items-center gap-[0.6rem] bg-white px-2 rounded-[4px]'>
-          <input id="searchBar" type='text' className='outline-none py-2  font-NotoSans text-[16px] rounded-[4px] border-slate-800' placeholder='Search' value={searchInput} onChange={(e) => {handleSearchInput(e)}} />
+        <div className='flex justify-center items-center gap-[0.6rem] bg-white px-3 py-1 rounded-[50px]'>
+          <input id="searchBar" type='text' className='outline-none py-1 font-NotoSans text-[16px] rounded-[4px] border-slate-800' placeholder='Search' value={searchInput} onChange={(e) => {handleSearchInput(e)}} />
           <BsSearch fontSize={20} className='text-slate-800 cursor-pointer' onClick={() => {handleSearchClick()}}/>
         </div>
       </div>

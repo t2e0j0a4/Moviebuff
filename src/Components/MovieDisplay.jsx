@@ -22,7 +22,9 @@ const MovieDisplay = ({details}) => {
       <div className={`w-[100%] h-[500px] py-2 pt-6 px-4 absolute rounded-[4px] top-0 left-0 bg-slate-200 opacity-100 ${movieDetails ? 'flex' : 'hidden'} flex-col justify-start items-center gap-[1rem]`}>
         
         <div className="w-[100%] flex justify-between items-start gap-[1rem]">
-          <Link to={`/movie/${id}`} className='font-NotoSans text-slate-500 hover:text-slate-800 hover:underline transition-all duration-500 text-left text-[21px] font-[900]'>{original_title}</Link>
+          <Link onClick={() => {
+            window.scrollTo(0);
+          }} to={`/movie/${id}`} className='font-NotoSans text-slate-500 hover:text-slate-800 hover:underline transition-all duration-500 text-left text-[21px] font-[900]'>{original_title}</Link>
           <span className='py-[5px] px-[8px] uppercase rounded-[20%] font-NotoSans text-[12px] text-slate-50 flex justify-center items-center text-center bg-slate-800 '>{original_language}</span>
         </div>
 
