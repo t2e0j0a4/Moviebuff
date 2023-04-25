@@ -1,5 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import Logo from "../Assets/Logo.png";
+import Context from '../Context/Context';
+import { BsSearch } from "react-icons/bs";
 import { MdMenu, MdClose } from "react-icons/md";
 import { Link, useLocation } from 'react-router-dom';
 
@@ -9,6 +11,9 @@ const Navbar = () => {
   let {pathname} = currentLocation;
 
   let [smMenu, setSmMenu] = useState(false);
+
+  let context = useContext(Context);
+  let { searchInput, handleSearchInput, handleSearchClick } = context;
 
   return (
 
@@ -23,8 +28,9 @@ const Navbar = () => {
         <li className="hover:scale-[0.96] transition-[transform] duration-500"><Link className={`font-NotoSans text-[18px] transition-colors duration-500 ${pathname === '/genres' ? 'text-slate-50' : 'text-slate-500'}`} to={'/genres'}>Genres</Link></li>
       </ul>
 
-      <div className='hidden md:flex justify-center items-center'>
-        <input type='search' className='outline-none py-2 px-3 font-NotoSans text-[16px] text-slate-800 rounded-[4px] border-[2px] border-slate-800' placeholder='Search'/>
+      <div className='hidden md:flex justify-center items-center gap-[0.6rem] bg-white px-2 rounded-[4px]'>
+        <input id="searchBar" type='text' className='outline-none py-2  font-NotoSans text-[16px] rounded-[4px] border-slate-800' placeholder='Search' value={searchInput} onChange={(e) => {handleSearchInput(e)}} />
+        <BsSearch fontSize={20} className='text-slate-800 cursor-pointer' onClick={() => {handleSearchClick()}}/>
       </div>
 
       <div className="flex md:hidden justify-center items-center cursor-pointer" onClick={() => {
@@ -36,13 +42,14 @@ const Navbar = () => {
         }
       </div>
 
-      <div className={`absolute md:hidden w-[280px] h-[200px] scale-up-center ${smMenu ? 'flex' : 'hidden'} flex-col justify-center items-center gap-[2rem] top-[90px] right-0 mt-2 mr-2 rounded-[4px] shadow-2xl bg-slate-800`}>
+      <div className={`absolute md:hidden z-[2] w-[300px] h-[200px] scale-up-center ${smMenu ? 'flex' : 'hidden'} flex-col justify-center items-center gap-[2rem] top-[90px] right-0 mt-2 mr-2 rounded-[4px] shadow-2xl bg-slate-800`}>
         <ul className="flex flex-col justify-center items-center gap-4">
-          <li className="hover:scale-[0.96] transition-[transform] duration-500"><Link onClick={() => {setSmMenu(false)}} className={`font-NotoSans text-[18px] transition-colors duration-500 ${pathname === '/' ? 'text-slate-50' : 'text-slate-500'}`} to={'/'}>Home</Link></li>
+          <li className="hover:scale-[0.96] transition-[transform] duration-500"><Link onClick={() => {setSmMenu(false)}} className={`font-NotoSans text-[18px] transition-colors duration-500 ${pathname === '/' ? 'text-slate-50' : 'text-slate-500'}`} to={'/'}>Trending</Link></li>
           <li className="hover:scale-[0.96] transition-[transform] duration-500"><Link onClick={() => {setSmMenu(false)}} className={`font-NotoSans text-[18px] transition-colors duration-500 ${pathname === '/genres' ? 'text-slate-50' : 'text-slate-500'}`} to={'/genres'}>Genres</Link></li>
         </ul>
-        <div className='flex justify-center items-center'>
-          <input type='search' className='outline-none py-2 px-3 font-NotoSans text-[16px] text-slate-800 rounded-[4px] border-[2px] border-slate-800' placeholder='Search'/>
+        <div className='flex justify-center items-center gap-[0.6rem] bg-white px-2 rounded-[4px]'>
+          <input id="searchBar" type='text' className='outline-none py-2  font-NotoSans text-[16px] rounded-[4px] border-slate-800' placeholder='Search' value={searchInput} onChange={(e) => {handleSearchInput(e)}} />
+          <BsSearch fontSize={20} className='text-slate-800 cursor-pointer' onClick={() => {handleSearchClick()}}/>
         </div>
       </div>
 
