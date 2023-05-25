@@ -11,8 +11,8 @@ const State = (props) => {
 
     // Home Page Filteration
     let [filter, setFilter] = useState('day');
-    const changeFilter = (e) => {
-        setFilter(e.target.value);
+    const changeFilter = (type) => {
+        setFilter(type);
     }
     
     // Trending Searhes for Home page

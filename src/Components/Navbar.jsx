@@ -20,7 +20,7 @@ const Navbar = () => {
     <nav className='w-[100%] h-[90px] bg-slate-800 flex px-3 justify-between items-center gap-3'>
 
       <div className="w-[200px] flex justify-center items-center mix-blend-normal">
-        <img src={Logo} alt="Moviebuff" className='w-[100%] h-[70px]' />
+        <Link to={'/'} className='w-[100%]'><img src={Logo} alt="Moviebuff" className='w-[100%] h-[70px]' /></Link>
       </div>
 
       <ul className=" hidden md:flex justify-center items-center gap-4">
@@ -42,7 +42,7 @@ const Navbar = () => {
         }
       </div>
 
-      <div className={`absolute md:hidden z-[2] w-[300px] h-[200px] scale-up-center ${smMenu ? 'flex' : 'hidden'} flex-col justify-center items-center gap-[2rem] top-[90px] right-0 mt-2 mr-2 rounded-[4px] shadow-2xl bg-slate-800`}>
+      <div className={`absolute md:hidden z-[2] w-[300px] h-[90vh] flex flex-col justify-start pt-4 items-center gap-[2rem] top-[90px] ${smMenu ? 'right-0' : 'right-[-900px]'} transition-all duration-500 shadow-2xl bg-slate-800`}>
         <ul className="flex flex-col justify-center items-center gap-4">
           <li className="hover:scale-[0.96] transition-[transform] duration-500"><Link onClick={() => {setSmMenu(false)}} className={`font-NotoSans text-[18px] transition-colors duration-500 ${pathname === '/' ? 'text-slate-50' : 'text-slate-500'}`} to={'/'}>Trending</Link></li>
           <li className="hover:scale-[0.96] transition-[transform] duration-500"><Link onClick={() => {setSmMenu(false)}} className={`font-NotoSans text-[18px] transition-colors duration-500 ${pathname === '/genres' ? 'text-slate-50' : 'text-slate-500'}`} to={'/genres'}>Genres</Link></li>
